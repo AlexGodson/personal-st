@@ -80,7 +80,7 @@ index 8a16faa..ddf4178 100644
 @@ -1118,11 +1127,23 @@ xinit(int cols, int rows)
  	Window parent;
  	pid_t thispid = getpid();
-	XColor xmousefg, xmousebg;
+ 	XColor xmousefg, xmousebg;
 +	XWindowAttributes attr;
 +	XVisualInfo vis;
  
