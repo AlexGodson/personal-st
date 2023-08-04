@@ -1248,14 +1248,12 @@ kscrollup(const Arg* a)
 }
 
 void
-tscrolldown(int orig, int n)
+tscrolldown(int top, int n)
 {
-	int i;
 	int i, bot = term.bot;
 	Line temp;
 
-	if (n <= 0)
-		return;
+	if (n <= 0) return;
 	n = MIN(n, bot-top+1);
 
 	tsetdirt(top, bot-n);
@@ -1278,8 +1276,6 @@ tscrollup(int top, int bot, int n, int mode)
 	int alt = IS_SET(MODE_ALTSCREEN);
 	int savehist = !alt && top == 0 && mode != SCROLL_NOSAVEHIST;
 	Line temp;
-
-	LIMIT(n, 0, term.bot-orig+1);
 
 	if (n <= 0)
 		return;
@@ -1326,7 +1322,7 @@ tscrollup(int top, int bot, int n, int mode)
 }
 
 void
-selscroll(int n)
+selmove(int n)
 {
 	sel.ob.y += n, sel.nb.y += n;
 	sel.oe.y += n, sel.ne.y += n;

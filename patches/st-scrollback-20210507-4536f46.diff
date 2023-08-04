@@ -203,7 +203,7 @@ index ebdf360..817cc47 100644
  
  void
 -tscrollup(int orig, int n)
-+tscrollup(int orig, int n, int copyhist)
++scrollup(int orig, int n, int copyhist)
  {
  	int i;
  	Line temp;
